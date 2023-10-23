@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 const UserImage = ({ image, size = "60px" }) => {
 
   image = image && image.includes('https://') ? image
-  : "http://localhost:3001/assets/" + image;
+  : "https://social-media-server-v2.vercel.app/assets/" + image;
 
   return (
     <Box width={size} height={size}>

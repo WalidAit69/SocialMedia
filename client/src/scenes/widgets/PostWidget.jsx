@@ -37,7 +37,7 @@ const PostWidget = ({
   const patchLike = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/posts/${postId}/like`,
+        `https://social-media-server-v2.vercel.app/posts/${postId}/like`,
         {
           method: "PATCH",
           headers: {
@@ -55,7 +55,7 @@ const PostWidget = ({
   };
 
   const src = picturePath && picturePath.includes('https://') ? picturePath
-  : "http://localhost:3001/assets/" + picturePath;
+  : "https://social-media-server-v2.vercel.app/assets/" + picturePath;
 
   return (
     <WidgetWrapper m="2rem 0">

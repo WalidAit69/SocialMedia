@@ -1,7 +1,7 @@
 {
     "headers": [
       {
-        "source": "/api/(.*)",
+        "source": "/(.*)",
         "headers": [
           {
             "key": "Access-Control-Allow-Credentials",
@@ -9,7 +9,7 @@
           },
           {
             "key": "Access-Control-Allow-Origin",
-            "value": "https://foodwine-v1.vercel.app"
+            "value": "https://social-media-server-v2.vercel.app/"
           },
           {
             "key": "Access-Control-Allow-Methods",
@@ -23,7 +23,7 @@
       }
     ],
     "rewrites": [
-      { "source": "/api/(.*)", "destination": "/api/index.js" },
+      { "source": "/(.*)", "destination": "/index.js" },
       { "source": "/(.*)", "destination": "/index.html" }
     ]
   }
