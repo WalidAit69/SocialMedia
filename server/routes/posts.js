@@ -6,6 +6,7 @@ const router = express.Router();
 
 /* READ */
 router.get("/", verifyToken, getFeedPosts);
+router.get("/all",  getFeedPosts);
 router.get("/:userId/posts", verifyToken, getUserPosts);
 
 /* UPDATE */
