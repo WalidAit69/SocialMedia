@@ -55,6 +55,7 @@ const Form = () => {
   const isLogin = pageType === "login";
   const isRegister = pageType === "register";
 
+  const [loading, setloading] = useState(false);
   
   const register = async (values, onSubmitProps) => {
     try {
@@ -86,13 +87,14 @@ const Form = () => {
 
   const login = async (values, onSubmitProps) => {
     try {
+      setloading(true);
       const loggedInResponse = await fetch("https://social-media-server-v2.vercel.app/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       });
       const loggedIn = await loggedInResponse.json();
-      alert(loggedIn.msg);
+      setloading(false)
       onSubmitProps.resetForm();
       if (loggedIn) {
         dispatch(
@@ -104,6 +106,7 @@ const Form = () => {
         navigate("/home");
       }
     } catch (error) {
+      setloading(false)
       console.log(error);
     }
   };
@@ -256,7 +259,7 @@ const Form = () => {
                 "&:hover": { color: palette.primary.main },
               }}
             >
-              {isLogin ? "LOGIN" : "REGISTER"}
+              {loading ? <span class="loader"></span> :(isLogin ? "LOGIN" : "REGISTER")}
             </Button>
             <Typography
               onClick={() => {
